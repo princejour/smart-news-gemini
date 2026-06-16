@@ -1,134 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>بوابة الأخبار الذكية</title>
-<meta name="description" content="موقع أخبار تلقائي بتبويبات متعددة يعتمد على Gemini ويعيد صياغة الأخبار داخل الموقع." />
 <style>
-:root{--bg:#f4f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--primary:#0f62fe;--primary-dark:#073b8f;--shadow:0 12px 32px rgba(15,23,42,.10);--radius:18px}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text)}button{font-family:inherit}.header{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,#061a40,#073b8f,#0f62fe);color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.18)}.header-in{max-width:1200px;margin:auto;padding:18px 14px}.brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px}.logo{width:46px;height:46px;border-radius:16px;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:24px;border:1px solid rgba(255,255,255,.22)}h1{margin:0;font-size:22px}.subtitle{margin:4px 0 0;color:rgba(255,255,255,.78);font-size:13px}.status{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.12);padding:8px 11px;border-radius:999px;font-size:12px;white-space:nowrap}.tabs-wrap{margin-top:15px;overflow-x:auto}.tabs{display:flex;gap:8px;min-width:max-content}.tab{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.10);color:#fff;border-radius:999px;padding:10px 13px;font-weight:800;cursor:pointer;white-space:nowrap}.tab.active{background:#fff;color:#073b8f}.main{max-width:1200px;margin:18px auto 50px;padding:0 14px}.warn{display:none;background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;padding:12px;border-radius:14px;margin-bottom:14px;line-height:1.7}.warn.show{display:block}.panel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-bottom:14px}.panel h2{margin:0;font-size:25px}.panel p{margin:5px 0 0;color:var(--muted);font-size:14px}.actions{display:flex;gap:8px}.btn{border:0;border-radius:13px;padding:11px 13px;font-weight:900;cursor:pointer;background:#111827;color:#fff}.btn.primary{background:var(--primary)}.btn.light{background:#fff;color:#111827;border:1px solid var(--line)}.btn:disabled{opacity:.55}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}.thumb{width:100%;aspect-ratio:16/9;background:#e5e7eb;position:relative;overflow:hidden}.thumb img,.hero img{width:100%;height:100%;object-fit:cover;display:block}.badge{position:absolute;top:10px;right:10px;background:rgba(15,23,42,.82);color:#fff;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:900}.card-body{padding:14px;display:flex;flex-direction:column;gap:9px;flex:1}.card h3{margin:0;font-size:18px;line-height:1.45}.summary{margin:0;color:#4b5563;font-size:14px;line-height:1.75}.meta{margin-top:auto;color:var(--muted);font-size:12px}.read{margin-top:4px;border-radius:13px;padding:11px 12px;background:#eff6ff;color:#073b8f;font-weight:900;border:1px solid #bfdbfe;cursor:pointer}.loader,.empty{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center;box-shadow:var(--shadow);color:var(--muted)}.spin{width:34px;height:34px;border:4px solid #dbeafe;border-top-color:var(--primary);border-radius:50%;margin:0 auto 12px;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.article-view{display:none}.back{margin-bottom:14px}.article{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.hero{width:100%;height:min(460px,55vw);background:#e5e7eb;overflow:hidden}.article-content{max-width:860px;margin:auto;padding:22px 18px 34px}.article-content h1{font-size:31px;line-height:1.45;margin:10px 0}.article-meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:16px}.article-body p{font-size:18px;line-height:2.05;margin:0 0 15px}.hidden-source{display:none!important}.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 14px 40px}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.panel{grid-template-columns:1fr}.actions .btn{flex:1}}@media(max-width:560px){h1{font-size:18px}.subtitle{font-size:12px}.status{display:none}.grid{grid-template-columns:1fr}.article-content h1{font-size:24px}.article-body p{font-size:16px}}
+body{margin:0;font-family:system-ui,Tahoma,Arial;background:#f4f7fb;color:#111827}.header{background:linear-gradient(135deg,#061a40,#0f62fe);color:white;padding:18px 14px;position:sticky;top:0;z-index:10;box-shadow:0 8px 24px #0003}.wrap{max-width:1150px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;gap:10px;align-items:center}.logo{width:46px;height:46px;border-radius:16px;background:#ffffff25;display:grid;place-items:center;font-size:24px}h1{font-size:22px;margin:0}.sub{margin:4px 0 0;color:#ffffffcc;font-size:13px}.status{background:#ffffff20;border:1px solid #ffffff35;border-radius:999px;padding:8px 12px;font-size:12px}.tabs{display:flex;gap:8px;overflow:auto;margin-top:14px}.tab{border:1px solid #ffffff30;background:#ffffff18;color:white;border-radius:999px;padding:10px 13px;font-weight:800;white-space:nowrap}.tab.active{background:white;color:#0f3f91}.main{max-width:1150px;margin:18px auto 50px;padding:0 14px}.warn{display:none;background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;padding:12px;border-radius:14px;margin-bottom:14px}.warn.show{display:block}.panel{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}.panel h2{margin:0;font-size:25px}.panel p{margin:5px 0 0;color:#6b7280}.actions{display:flex;gap:8px}.btn{border:0;border-radius:13px;padding:11px 13px;font-weight:900;cursor:pointer;background:#111827;color:white}.btn.primary{background:#0f62fe}.btn.light{background:white;color:#111827;border:1px solid #e5e7eb}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:white;border:1px solid #e5e7eb;border-radius:18px;overflow:hidden;box-shadow:0 12px 32px #0f172a1a;display:flex;flex-direction:column}.thumb{aspect-ratio:16/9;background:#e5e7eb;position:relative}.thumb img,.hero img{width:100%;height:100%;object-fit:cover;display:block}.badge{position:absolute;top:10px;right:10px;background:#0f172ad1;color:white;border-radius:999px;padding:6px 9px;font-size:12px;font-weight:900}.card-body{padding:14px;display:flex;flex-direction:column;gap:9px;flex:1}.card h3{margin:0;font-size:18px;line-height:1.45}.summary{margin:0;color:#4b5563;font-size:14px;line-height:1.75}.meta{margin-top:auto;color:#6b7280;font-size:12px}.read{border-radius:13px;padding:11px 12px;background:#eff6ff;color:#073b8f;font-weight:900;border:1px solid #bfdbfe;cursor:pointer}.loader,.empty{background:white;border:1px solid #e5e7eb;border-radius:18px;padding:24px;text-align:center;color:#6b7280;box-shadow:0 12px 32px #0f172a1a}.spin{width:34px;height:34px;border:4px solid #dbeafe;border-top-color:#0f62fe;border-radius:50%;margin:0 auto 12px;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.article-view{display:none}.back{margin-bottom:14px}.article{background:white;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 12px 32px #0f172a1a;overflow:hidden}.hero{height:min(460px,55vw);background:#e5e7eb}.article-content{max-width:860px;margin:auto;padding:22px 18px 34px}.article-content h1{font-size:31px;line-height:1.45}.article-meta{display:flex;gap:8px;flex-wrap:wrap;color:#6b7280;font-size:13px}.article-body p{font-size:18px;line-height:2.05}.hidden-source{display:none}.footer{text-align:center;color:#6b7280;font-size:13px;padding:25px 14px 40px}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.panel{display:block}.actions{margin-top:10px}.actions .btn{flex:1}}@media(max-width:560px){h1{font-size:18px}.sub{font-size:12px}.status{display:none}.grid{grid-template-columns:1fr}.article-content h1{font-size:24px}.article-body p{font-size:16px}}
 </style>
 </head>
 <body>
-<header class="header"><div class="header-in"><div class="brand-row"><div class="brand"><div class="logo">📰</div><div><h1>بوابة الأخبار الذكية</h1><p class="subtitle">جلب تلقائي، إعادة صياغة كاملة، وقراءة داخل الموقع</p></div></div><div id="status" class="status">جاري التهيئة...</div></div><div class="tabs-wrap"><nav id="tabs" class="tabs"></nav></div></div></header>
-<main class="main">
-<div id="warning" class="warn"></div>
-<section id="homeView"><div class="panel"><div><h2 id="sectionTitle">الأخبار</h2><p id="sectionDesc">تحديث تلقائي كل 10 دقائق عند فتح الموقع.</p></div><div class="actions"><button id="refreshBtn" class="btn primary" type="button">تحديث الآن</button><button id="clearBtn" class="btn light" type="button">مسح الكاش</button></div></div><div id="content"></div></section>
-<section id="articleView" class="article-view"><button id="backBtn" class="btn light back" type="button">← رجوع إلى الأخبار</button><article class="article"><div id="articleHero" class="hero"></div><div class="article-content"><div id="articleMeta" class="article-meta"></div><h1 id="articleTitle"></h1><div id="articleBody" class="article-body"></div><div id="internalSource" class="hidden-source"></div></div></article></section>
-</main>
-<footer class="footer">© بوابة الأخبار الذكية — نسخة تجريبية</footer>
-<script type="module">
-/* ضع مفتاح Gemini هنا */
-const GEMINI_API_KEY = "ضع_مفتاح_Gemini_هنا";
-
-/* ضع إعدادات Firebase هنا. إذا تركتها كما هي، يعمل الموقع بـ localStorage فقط. */
-const firebaseConfig = {
-  apiKey: "ضع_firebase_apiKey_هنا",
-  authDomain: "ضع_project.firebaseapp.com",
-  projectId: "ضع_projectId_هنا",
-  storageBucket: "ضع_project.appspot.com",
-  messagingSenderId: "ضع_messagingSenderId_هنا",
-  appId: "ضع_appId_هنا"
-};
-
-const MODEL = "gemini-2.5-flash";
-const CACHE_MINUTES = 10;
-const NEWS_PER_CATEGORY = 8;
-const CACHE_KEY = "smart_news_cache_v1";
-const FIRESTORE_DOC = ["publicCache", "mainNews"];
-const CATEGORIES = [
-  {key:"tunisia",label:"أخبار تونس",desc:"آخر الأخبار الخاصة بتونس فقط."},
-  {key:"worldCup2026",label:"كأس العالم 2026",desc:"المباريات، النتائج، المنتخبات، التصريحات وكل ما يخص كأس العالم 2026."},
-  {key:"sports",label:"أخبار الرياضة",desc:"أخبار رياضية عامة دون تكرار أخبار كأس العالم."},
-  {key:"world",label:"الأخبار العالمية",desc:"أحداث دولية عامة من خارج تونس."},
-  {key:"politics",label:"الأخبار السياسية",desc:"أخبار سياسية محلية ودولية حسب الأهمية."},
-  {key:"arts",label:"أخبار الفن",desc:"السينما، الموسيقى، التلفزيون، المهرجانات والمشاهير."}
-];
-let activeCategory="tunisia", newsData=null, db=null, firebaseReady=false, isLoading=false;
-
-async function initFirebase(){
-  const ok=firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("ضع_") && firebaseConfig.projectId && !firebaseConfig.projectId.includes("ضع_");
-  if(!ok)return;
-  try{const {initializeApp}=await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");const {getFirestore}=await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");db=getFirestore(initializeApp(firebaseConfig));firebaseReady=true;}catch(e){firebaseReady=false;console.warn(e)}
-}
-async function readSharedCache(){if(!firebaseReady)return null;try{const {doc,getDoc}=await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");const s=await getDoc(doc(db,...FIRESTORE_DOC));return s.exists()?s.data():null}catch(e){return null}}
-async function writeSharedCache(payload){if(!firebaseReady)return false;try{const {doc,setDoc}=await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");await setDoc(doc(db,...FIRESTORE_DOC),{...payload,updatedAtISO:new Date().toISOString()});return true}catch(e){return false}}
-
-function setupUI(){
-  const initial=decodeURIComponent(location.hash.replace("#", "")); if(CATEGORIES.some(c=>c.key===initial)) activeCategory=initial;
-  tabs.innerHTML=CATEGORIES.map(c=>`<button class="tab ${c.key===activeCategory?'active':''}" data-key="${c.key}" type="button">${c.label}</button>`).join("");
-  tabs.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{activeCategory=b.dataset.key;document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));b.classList.add("active");renderHome();history.replaceState(null,"","#"+activeCategory)});
-  refreshBtn.onclick=()=>loadNews({force:true});
-  clearBtn.onclick=()=>{localStorage.removeItem(CACHE_KEY);showWarning("تم مسح الكاش المحلي. سيتم جلب الأخبار من جديد.");loadNews({force:true})};
-  backBtn.onclick=closeArticle;
-}
-function setStatus(t){status.textContent=t}
-function showWarning(t){warning.textContent=t;warning.classList.add("show");setTimeout(()=>warning.classList.remove("show"),7000)}
-function showConfigWarning(){let p=[];if(!GEMINI_API_KEY||GEMINI_API_KEY.includes("ضع_"))p.push("لم يتم وضع مفتاح Gemini بعد داخل index.html.");if(!firebaseReady)p.push("Firebase غير مضبوط: الموقع سيستعمل localStorage فقط، والكاش لن يكون مشتركًا بين الزوار.");warning.innerHTML=p.map(x=>"• "+escapeHtml(x)).join("<br>");warning.classList.toggle("show",p.length>0)}
-function renderLoading(){content.innerHTML=`<div class="loader"><div class="spin"></div><strong>جاري جلب الأخبار...</strong><div style="margin-top:6px">قد تستغرق العملية بضع ثوانٍ بسبب البحث وإعادة الصياغة.</div></div>`}
-function renderHome(){homeView.style.display="block";articleView.style.display="none";const cat=CATEGORIES.find(c=>c.key===activeCategory)||CATEGORIES[0];sectionTitle.textContent=cat.label;sectionDesc.textContent=cat.desc;if(!newsData){renderLoading();return}const list=Array.isArray(newsData[activeCategory])?newsData[activeCategory]:[];if(!list.length){content.innerHTML='<div class="empty">لا توجد أخبار في هذا التبويب حاليًا.</div>';return}content.innerHTML=`<div class="grid">${list.map(i=>renderCard(i,cat)).join("")}</div>`;document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openArticle(b.dataset.open));setStatus(newsData.updatedAt?"آخر تحديث: "+formatDate(new Date(newsData.updatedAt)):"أخبار جاهزة")}
-function renderCard(i,cat){return `<article class="card"><div class="thumb">${safeImage(i.imageUrl,i.category||activeCategory)}<span class="badge">${escapeHtml(cat.label)}</span></div><div class="card-body"><h3>${escapeHtml(i.title||"خبر بدون عنوان")}</h3><p class="summary">${escapeHtml(i.summary||"")}</p><div class="meta">${escapeHtml(i.publishedAt||"تاريخ غير متوفر")}</div><button class="read" data-open="${escapeHtml(i.id)}" type="button">اقرأ الخبر</button><span class="hidden-source">${escapeHtml(i.sourceName||"")} ${escapeHtml(i.sourceUrl||"")}</span></div></article>`}
-function openArticle(id){const i=findArticle(id);if(!i)return;homeView.style.display="none";articleView.style.display="block";const cat=CATEGORIES.find(c=>c.key===(i.category||activeCategory));articleHero.innerHTML=safeImage(i.imageUrl,i.category||activeCategory,true);articleTitle.textContent=i.title||"خبر بدون عنوان";articleMeta.innerHTML=`<span>${escapeHtml(cat?.label||"أخبار")}</span><span>•</span><span>${escapeHtml(i.publishedAt||"تاريخ غير متوفر")}</span>`;const ps=Array.isArray(i.body)?i.body:[i.body||i.summary||""];articleBody.innerHTML=ps.filter(Boolean).map(p=>`<p>${escapeHtml(String(p))}</p>`).join("");internalSource.textContent=`sourceName=${i.sourceName||""}\nsourceUrl=${i.sourceUrl||""}`;window.scrollTo({top:0,behavior:"smooth"});history.pushState({article:id},"","#article-"+encodeURIComponent(id))}
-function closeArticle(){articleView.style.display="none";homeView.style.display="block";history.replaceState(null,"","#"+activeCategory);window.scrollTo({top:0,behavior:"smooth"})}
-function findArticle(id){for(const c of CATEGORIES){const f=(newsData?.[c.key]||[]).find(x=>String(x.id)===String(id));if(f)return f}return null}
-function getLocalCache(){try{return JSON.parse(localStorage.getItem(CACHE_KEY)||"null")}catch{return null}}
-function setLocalCache(d){localStorage.setItem(CACHE_KEY,JSON.stringify(d))}
-function isFresh(p){return p&&p.updatedAtMs&&(Date.now()-Number(p.updatedAtMs)<CACHE_MINUTES*60000)}
-async function loadNews({force=false}={}){if(isLoading)return;isLoading=true;refreshBtn.disabled=true;try{showConfigWarning();if(!force){const shared=await readSharedCache();if(shared?.data&&isFresh(shared)){newsData=shared.data;setLocalCache(shared);renderHome();setStatus("من كاش Firebase");return}const local=getLocalCache();if(local?.data&&isFresh(local)){newsData=local.data;renderHome();setStatus("من الكاش المحلي");return}if(shared?.data){newsData=shared.data;renderHome();setStatus("عرض مؤقت من كاش قديم")}}if(!GEMINI_API_KEY||GEMINI_API_KEY.includes("ضع_")){showWarning("ضع مفتاح Gemini داخل index.html حتى يعمل الجلب التلقائي.");return}renderLoading();const raw=await fetchFromGemini();newsData=normalizeNewsData(raw);const payload={updatedAtMs:Date.now(),data:newsData};setLocalCache(payload);await writeSharedCache(payload);renderHome();showWarning("تم تحديث الأخبار تلقائيًا.")}catch(e){console.error(e);showWarning("فشل جلب الأخبار. السبب: "+e.message);const local=getLocalCache();if(local?.data){newsData=local.data;renderHome()}else content.innerHTML='<div class="empty">تعذر جلب الأخبار ولا يوجد كاش محفوظ.</div>'}finally{isLoading=false;refreshBtn.disabled=false}}
-async function fetchFromGemini(){const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":GEMINI_API_KEY},body:JSON.stringify({contents:[{parts:[{text:buildPrompt()}]}],tools:[{google_search:{}}],generationConfig:{temperature:.45,responseMimeType:"application/json"}})});const data=await res.json();if(!res.ok)throw new Error(data?.error?.message||`HTTP ${res.status}`);const text=data?.candidates?.[0]?.content?.parts?.map(p=>p.text||"").join("\n").trim();if(!text)throw new Error("Gemini لم يرجع نصًا صالحًا.");return parseJsonResponse(text)}
-function buildPrompt(){return `أنت محرر أخبار عربي محترف. اجلب أخبارًا حديثة قدر الإمكان باستعمال البحث، ثم أعد صياغتها بالكامل باللغة العربية بأسلوب صحفي واضح ومفهوم.
-
-الأقسام المطلوبة:
-1. أخبار تونس => key: tunisia
-2. أخبار كأس العالم 2026 => key: worldCup2026
-3. أخبار الرياضة => key: sports
-4. الأخبار العالمية => key: world
-5. الأخبار السياسية => key: politics
-6. أخبار الفن => key: arts
-
-المطلوب لكل قسم: ${NEWS_PER_CATEGORY} أخبار قدر الإمكان.
-
-الشروط:
-- لا تكرر نفس الخبر في أكثر من قسم.
-- أخبار تونس خاصة بتونس فقط.
-- أخبار كأس العالم 2026 خاصة بكأس العالم فقط.
-- أخبار الرياضة عامة ولا تكرر أخبار كأس العالم إلا للضرورة.
-- الأخبار العالمية من خارج تونس وتشمل أحداثًا دولية عامة.
-- الأخبار السياسية سياسية فقط.
-- أخبار الفن عن السينما، الموسيقى، التلفزيون، المسرح، المهرجانات والمشاهير.
-
-لكل خبر أرجع هذه الحقول:
-{
-  "id": "معرف قصير بالإنجليزية بدون فراغات",
-  "category": "tunisia أو worldCup2026 أو sports أو world أو politics أو arts",
-  "title": "عنوان عربي جديد معاد الصياغة",
-  "summary": "ملخص قصير",
-  "body": ["4 إلى 7 فقرات عربية كاملة، خبر معاد الصياغة بالكامل دون نسخ حرفي"],
-  "imageUrl": "رابط الصورة الأصلية المباشرة إن وجد، وإلا null",
-  "publishedAt": "تاريخ النشر إن وجد",
-  "sourceName": "اسم المصدر للحفظ الداخلي فقط",
-  "sourceUrl": "رابط الخبر الأصلي للحفظ الداخلي فقط"
-}
-
-شروط صارمة:
-- لا تكتب أي نص خارج JSON.
-- لا تذكر اسم المصدر داخل title أو summary أو body.
-- لا تكتب: حسب المصدر، قال الموقع، أفادت الصحيفة.
-- لا تنسخ النص الأصلي حرفيًا.
-- حافظ على الوقائع والأسماء والتواريخ والنتائج والأرقام دون اختراع.
-- لا تنشر خبرًا بلا sourceUrl.
-- إذا لم تجد صورة أصلية مباشرة اجعل imageUrl = null.
-- أرجع JSON صالحًا فقط بهذا الشكل:
-{"tunisia":[],"worldCup2026":[],"sports":[],"world":[],"politics":[],"arts":[],"updatedAt":"ISO_DATE"}`}
-function parseJsonResponse(t){let c=t.trim().replace(/^```(?:json)?/i,"").replace(/```$/i,"").trim();const a=c.indexOf("{"),b=c.lastIndexOf("}");if(a>=0&&b>a)c=c.slice(a,b+1);return JSON.parse(c)}
-function normalizeNewsData(input){const out={tunisia:[],worldCup2026:[],sports:[],world:[],politics:[],arts:[],updatedAt:input.updatedAt||new Date().toISOString()};for(const cat of CATEGORIES){const arr=Array.isArray(input[cat.key])?input[cat.key]:[];out[cat.key]=arr.filter(i=>i&&i.title&&i.sourceUrl).slice(0,NEWS_PER_CATEGORY).map((i,n)=>({id:i.id?slugify(String(i.id)):`${cat.key}_${Date.now()}_${n}`,category:cat.key,title:String(i.title||"").trim(),summary:String(i.summary||"").trim(),body:Array.isArray(i.body)?i.body.map(x=>String(x).trim()).filter(Boolean):[String(i.body||i.summary||"").trim()],imageUrl:i.imageUrl||null,publishedAt:i.publishedAt||"",sourceName:i.sourceName||"",sourceUrl:i.sourceUrl||""}))}return out}
-function safeImage(url,category,large=false){if(url&&typeof url==="string"&&/^https?:\/\//i.test(url))return `<img src="${escapeAttr(url)}" alt="" loading="${large?'eager':'lazy'}" referrerpolicy="no-referrer" onerror="this.outerHTML='${placeholderSvg(category).replace(/'/g,'&#39;')}'">`;return placeholderSvg(category)}
-function placeholderSvg(category){const labels={tunisia:"أخبار تونس",worldCup2026:"كأس العالم 2026",sports:"أخبار الرياضة",world:"العالمية",politics:"السياسة",arts:"الفن"};const label=labels[category]||"الأخبار";const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#061a40"/><stop offset=".55" stop-color="#0f62fe"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><rect width="1200" height="675" fill="url(#g)"/><circle cx="1030" cy="120" r="140" fill="rgba(255,255,255,.12)"/><circle cx="120" cy="610" r="190" fill="rgba(255,255,255,.10)"/><text x="600" y="330" text-anchor="middle" fill="white" font-size="62" font-family="Arial" font-weight="700">${escapeSvg(label)}</text><text x="600" y="395" text-anchor="middle" fill="rgba(255,255,255,.78)" font-size="32" font-family="Arial">بوابة الأخبار الذكية</text></svg>`;return `<img src="data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}" alt="" loading="lazy">`}
-function formatDate(d){try{return new Intl.DateTimeFormat("ar-TN",{dateStyle:"short",timeStyle:"short"}).format(d)}catch{return d.toLocaleString()}}
-function slugify(s){return s.toLowerCase().replace(/[^a-z0-9_\-]+/gi,"_").replace(/_+/g,"_").replace(/^_|_$/g,"").slice(0,80)||("news_"+Date.now())}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}function escapeAttr(s){return escapeHtml(s)}function escapeSvg(s){return String(s).replace(/[&<>"']/g,"")}
-window.addEventListener("popstate",()=>{if(!location.hash.startsWith("#article-"))closeArticle()});
-setupUI();await initFirebase();showConfigWarning();await loadNews({force:false});
-</script>
+<header class="header"><div class="wrap"><div class="top"><div class="brand"><div class="logo">📰</div><div><h1>بوابة الأخبار الذكية</h1><p class="sub">نسخة Netlify Functions</p></div></div><div id="status" class="status">جاري التهيئة...</div></div><nav id="tabs" class="tabs"></nav></div></header>
+<main class="main"><div id="warning" class="warn"></div><section id="homeView"><div class="panel"><div><h2 id="sectionTitle">الأخبار</h2><p id="sectionDesc">تحديث تلقائي كل 10 دقائق عند فتح الموقع.</p></div><div class="actions"><button id="refreshBtn" class="btn primary" type="button">تحديث الآن</button><button id="clearBtn" class="btn light" type="button">مسح الكاش</button></div></div><div id="content"></div></section><section id="articleView" class="article-view"><button id="backBtn" class="btn light back" type="button">← رجوع إلى الأخبار</button><article class="article"><div id="articleHero" class="hero"></div><div class="article-content"><div id="articleMeta" class="article-meta"></div><h1 id="articleTitle"></h1><div id="articleBody" class="article-body"></div><div id="internalSource" class="hidden-source"></div></div></article></section></main>
+<footer class="footer">© بوابة الأخبار الذكية</footer>
+<script src="app.js" defer></script>
 </body>
 </html>
