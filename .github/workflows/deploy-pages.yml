@@ -1,0 +1,58 @@
+name: Deploy Smart News Site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp .nojekyll dist/.nojekyll
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          p = Path('dist/index.html')
+          html = p.read_text(encoding='utf-8')
+          key = os.environ.get('GEMINI_API_KEY', '')
+          if not key:
+              raise SystemExit('Missing GEMINI_API_KEY secret')
+          html = html.replace('ضع_مفتاح_Gemini_هنا', key)
+          p.write_text(html, encoding='utf-8')
+          PY
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
