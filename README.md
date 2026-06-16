@@ -1,6 +1,6 @@
-# بوابة الأخبار الذكية - Gemini
+# بوابة الأخبار الذكية - Netlify Functions
 
-موقع أخبار عربي تجريبي يعتمد على `gemini-2.5-flash` مع Google Search Grounding لجلب الأخبار وإعادة صياغتها داخل الموقع.
+موقع أخبار عربي تجريبي يعتمد على `gemini-2.5-flash` مع Google Search Grounding، لكن عبر Netlify Function حتى يبقى مفتاح Gemini في إعدادات Netlify وليس داخل كود الواجهة.
 
 ## التبويبات
 
@@ -11,46 +11,50 @@
 - الأخبار السياسية
 - أخبار الفن
 
-## الخصائص
+## الملفات المهمة
 
-- جلب تلقائي عند فتح الموقع.
-- تحديث كل 10 دقائق.
-- قراءة الخبر داخل الموقع دون تحويل الزائر إلى المصدر.
-- إعادة صياغة الخبر كاملًا بالعربية.
-- المصدر مخفي عن الواجهة ومحفوظ داخليًا فقط.
-- محاولة استعمال الصورة الأصلية عبر `imageUrl`، وإذا لم تتوفر تظهر صورة افتراضية.
-- يعمل بـ `localStorage` مباشرة.
-- يدعم Firebase Firestore ككاش مشترك عند وضع إعدادات Firebase.
+- `index.html`: الواجهة.
+- `app.js`: منطق العرض والتبويبات والكاش المحلي.
+- `netlify/functions/news.mts`: Backend يجلب الأخبار من Gemini.
 
-## طريقة التشغيل
+## طريقة النشر على Netlify
 
-افتح `index.html` ثم عوّض:
-
-```js
-const GEMINI_API_KEY = "ضع_مفتاح_Gemini_هنا";
-```
-
-بمفتاح Gemini من Google AI Studio.
-
-ثم عوّض `firebaseConfig` بإعدادات مشروع Firebase إن أردت كاش مشترك بين الزوار.
-
-## GitHub Pages
-
-بعد رفع الملفات إلى المستودع:
-
-1. ادخل إلى Settings.
-2. اختر Pages.
-3. Source: Deploy from a branch.
-4. Branch: `main`.
-5. Folder: `/root`.
-6. اضغط Save.
-
-الرابط يكون عادة:
+1. ادخل إلى Netlify.
+2. اختر Add new site.
+3. اختر Import an existing project.
+4. اربط GitHub واختر المستودع:
 
 ```text
-https://princejour.github.io/smart-news-gemini/
+princejour/smart-news-gemini
 ```
 
-## ملاحظة مهمة
+5. في Build settings اجعل:
 
-المفتاح موجود في الواجهة لأن النسخة تجريبية وبدون Backend. لا تستعمل مفتاحًا مدفوعًا بهذه الطريقة إلا إذا كنت تقبل ظهوره في كود الصفحة.
+```text
+Build command: فارغ
+Publish directory: .
+Functions directory: netlify/functions
+```
+
+6. بعد إنشاء الموقع، ادخل إلى:
+
+```text
+Site configuration > Environment variables
+```
+
+7. أضف متغيرًا جديدًا:
+
+```text
+Name: GEMINI_API_KEY
+Value: مفتاح Gemini الحقيقي
+```
+
+8. أعد النشر Deploy.
+
+بعدها الموقع سيطلب الأخبار من:
+
+```text
+/api/news
+```
+
+ولن يظهر مفتاح Gemini داخل GitHub أو داخل كود المتصفح.
